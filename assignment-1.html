@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+	<title> An Interaction </title>
+	<style>
+		/* this is CSS */
+		body {
+			color:#b00; /*official CMU web red */
+			background:#C0C0C0;
+		}
+	</style>
+</head>
+<body>
+<h1>An Interactive Bank Account Simulator</h1>
+<p>
+	This is an interactive document helping you determine how much money you should save everyday. If you start with $1000 and save $<input id="number" type = "number" value = "0"> each day (by adding it into your bank account), then with an annual return of 5%, 
+	$<span id ="output">???</span> will be the amount of money you have after a year.
+	<br>
+	<br>
+	Bonus: if you save for 10 years (without depositing any money), you will have  $<span id ="outputTen">???</span>.
+</p>
+<script>
+//now this is javascript within the "script" tag
+//javascript is statement oriented
+console.log("Hello from javascript");
+
+const numberInput = document.getElementById("number");
+const rateInput = document.getElementById("rate");
+const outputSpan = document.getElementById("output");
+const outputTen = document.getElementById("outputTen");
+
+function updateOutput(){
+	outputSpan.innerText = parseInt(numberInput.value) * 2.71828 ** (0.05);
+	outputTen.innerText = parseInt(numberInput.value) * 2.71828 ** (0.05*10);
+}
+
+updateOutput();
+
+numberInput.addEventListener('input', updateOutput);
+
+
+</script>
+</body>
+</html>
